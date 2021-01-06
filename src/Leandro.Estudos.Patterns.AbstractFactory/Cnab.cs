@@ -15,7 +15,7 @@ namespace Leandro.Estudos.Patterns.AbstractFactory
     {
       var consolidado = "";
       Boletos.ForEach(x =>{
-        consolidado += $"{x.Banco} {x.Pagador.Nome} {x.CodigoBarras} {x.Valor}\n";
+        consolidado += $"{x.Banco} {x.Pagador.Nome} {x.CodigoBarras} {x.Valor.ToString().Replace(",","")}\n";
       });
       return consolidado;
     }
