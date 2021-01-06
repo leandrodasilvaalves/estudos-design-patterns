@@ -8,28 +8,18 @@ namespace Leandro.Estudos.Patterns.FactoryMethod
   {
     static void Main(string[] args)
     {
-        var factory = ObterFactory(Leitor.Xml);
+        var gerenciadorFacotry = new GerenciadorFactory();
+        var factory = gerenciadorFacotry[Leitor.Xml];
         var leitor = factory.CriarLeitor();
         leitor.Ler();
 
-        factory = ObterFactory(Leitor.Json);
+        factory = gerenciadorFacotry[Leitor.Json];
         leitor = factory.CriarLeitor();
         leitor.Ler();
 
-        factory = ObterFactory(Leitor.Txt);
+        factory =gerenciadorFacotry[Leitor.Txt];
         leitor = factory.CriarLeitor();
         leitor.Ler();
-    }
-
-    static LeitorFactory ObterFactory(Leitor leitor)
-    {
-      var factories = new Dictionary<Leitor, LeitorFactory>
-      {
-          {Leitor.Json, new LeitorJsonFactory()},
-          {Leitor.Xml, new LeitorXMLFactory()},
-          {Leitor.Txt, new LeitorTxtFactory()},
-      };
-      return factories[leitor];
     }
   }
 }
