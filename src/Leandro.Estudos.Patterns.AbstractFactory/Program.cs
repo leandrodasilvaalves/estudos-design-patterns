@@ -8,23 +8,23 @@ namespace Leandro.Estudos.Patterns.AbstractFactory
     static void Main(string[] args)
     {
       Console.WriteLine("----------------CRIACAO DE BOLETOS----------------");
-      var factoryItau = ObterFactory(Banco.Itau);
-      var fulano = new Pagador("Fulano da Silva"); 
-      var debitoFulano = new Debito(fulano, 100.0M);     
-      var boletoItau = factoryItau.CriarBoleto(debitoFulano);
+      var factoryItau = GerenciadorFactory.ObterFactory(Banco.Itau);
+      var joao = new Pagador("Joao da Silva"); 
+      var debitoJoao = new Debito(joao, 100.0M);     
+      var boletoItau = factoryItau.CriarBoleto(debitoJoao);
       Console.WriteLine($"{nameof(ItauBoleto)}:{boletoItau}");
 
-      var factoryBradesco = ObterFactory(Banco.Bradesco);
-      var cicrano = new Pagador("Cicrano  da Silva");
-      var debitoCicrano = new Debito(cicrano, 85.75M);
-      var boletoBradesco = factoryBradesco.CriarBoleto(debitoCicrano);      
+      var factoryBradesco = GerenciadorFactory.ObterFactory(Banco.Bradesco);
+      var jose = new Pagador("Jose  da Silva");
+      var debitoJose = new Debito(jose, 85.75M);
+      var boletoBradesco = factoryBradesco.CriarBoleto(debitoJose);      
       Console.WriteLine($"{nameof(BradescoBoleto)}:{boletoBradesco}");
 
       var debitos = new List<Debito>{
-        debitoFulano,
-        debitoCicrano,
-        new Debito(new Pagador("Beltrano  da Silva"), 25.50M),
-        new Debito(new Pagador("Criatura  da Silva"), 48.70M),
+        debitoJoao,
+        debitoJose,
+        new Debito(new Pagador("Maria  da Silva"), 25.50M),
+        new Debito(new Pagador("Pedro  da Silva"), 48.70M),
       };
 
       Console.WriteLine("-----------------CRIACAO DE CNABS-----------------");
@@ -34,21 +34,5 @@ namespace Leandro.Estudos.Patterns.AbstractFactory
       var cnabBradesco = factoryBradesco.CriarCnab(debitos);
       Console.WriteLine($"{nameof(BradescoCnab)}:\n{cnabBradesco}");
     }
-
-    private static BancoAbstractFactory ObterFactory(Banco banco)
-    {
-      var factories = new Dictionary<Banco, BancoAbstractFactory>
-      {
-          {Banco.Itau, new ItauFactory()},
-          {Banco.Bradesco, new BradescoFactory()},
-      };
-      return factories[banco];
-    }
-  }
-
-  enum Banco
-  {
-    Itau,
-    Bradesco,
   }
 }
