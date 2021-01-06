@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2C3704E0-56F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leandro.Estudos.Patterns.AbstractFactory", "src\Leandro.Estudos.Patterns.AbstractFactory\Leandro.Estudos.Patterns.AbstractFactory.csproj", "{E18A0508-7D82-42DB-B831-27C78CB1E128}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leandro.Estudos.Patterns.FactoryMethod", "src\Leandro.Estudos.FactoryMethod\Leandro.Estudos.Patterns.FactoryMethod.csproj", "{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +34,21 @@ Global
 		{E18A0508-7D82-42DB-B831-27C78CB1E128}.Release|x64.Build.0 = Release|Any CPU
 		{E18A0508-7D82-42DB-B831-27C78CB1E128}.Release|x86.ActiveCfg = Release|Any CPU
 		{E18A0508-7D82-42DB-B831-27C78CB1E128}.Release|x86.Build.0 = Release|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Debug|x64.Build.0 = Debug|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Debug|x86.Build.0 = Debug|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Release|x64.ActiveCfg = Release|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Release|x64.Build.0 = Release|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Release|x86.ActiveCfg = Release|Any CPU
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E18A0508-7D82-42DB-B831-27C78CB1E128} = {2C3704E0-56F0-476D-B8B8-D45B38AE352E}
+		{D8AF474F-B9F6-4DC3-9508-07DA5B5F606B} = {2C3704E0-56F0-476D-B8B8-D45B38AE352E}
 	EndGlobalSection
 EndGlobal
