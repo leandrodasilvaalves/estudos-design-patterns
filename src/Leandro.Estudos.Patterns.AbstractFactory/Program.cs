@@ -5,6 +5,7 @@ namespace Leandro.Estudos.Patterns.AbstractFactory
 {
   class Program
   {
+    private readonly static GerenciadorFactory gerenciadorFactory = new GerenciadorFactory();
     static void Main(string[] args)
     {
         ExemploBoletoItau();
@@ -15,7 +16,7 @@ namespace Leandro.Estudos.Patterns.AbstractFactory
     static void ExemploBoletoItau()
     {
       Console.WriteLine("----------------CRIACAO DE BOLETOS----------------");
-      var factoryItau = GerenciadorFactory.ObterFactory(Banco.Itau);
+      var factoryItau = gerenciadorFactory[Banco.Itau];
       var joao = new Pagador("Joao da Silva");
       var debitoJoao = new Debito(joao, 100.0M);
       var boletoItau = factoryItau.CriarBoleto(debitoJoao);
@@ -24,7 +25,7 @@ namespace Leandro.Estudos.Patterns.AbstractFactory
 
     static void ExemploBoletoBradesco()
     {
-      var factoryBradesco = GerenciadorFactory.ObterFactory(Banco.Bradesco);
+      var factoryBradesco = gerenciadorFactory[Banco.Bradesco];
       var jose = new Pagador("Jose da Silva");
       var debitoJose = new Debito(jose, 85.75M);
       var boletoBradesco = factoryBradesco.CriarBoleto(debitoJose);
@@ -41,11 +42,11 @@ namespace Leandro.Estudos.Patterns.AbstractFactory
       };
 
       Console.WriteLine("-----------------CRIACAO DE CNABS-----------------");
-      var factoryItau = GerenciadorFactory.ObterFactory(Banco.Itau);      
+      var factoryItau = gerenciadorFactory[Banco.Itau];      
       var cnabItau = factoryItau.CriarCnab(debitos);
       Console.WriteLine($"{nameof(ItauCnab)}:\n{cnabItau}");
 
-      var factoryBradesco = GerenciadorFactory.ObterFactory(Banco.Bradesco);
+      var factoryBradesco = gerenciadorFactory[Banco.Bradesco];
       var cnabBradesco = factoryBradesco.CriarCnab(debitos);
       Console.WriteLine($"{nameof(BradescoCnab)}:\n{cnabBradesco}");
     }

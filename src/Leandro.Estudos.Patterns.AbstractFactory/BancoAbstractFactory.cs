@@ -8,16 +8,12 @@ namespace Leandro.Estudos.Patterns.AbstractFactory
     public abstract Cnab CriarCnab(List<Debito> debitos);
   }
 
-  public class GerenciadorFactory
+  public class GerenciadorFactory : Dictionary<Banco, BancoAbstractFactory>
   {
-    public static BancoAbstractFactory ObterFactory(Banco banco)
+    public GerenciadorFactory()
     {
-      var factories = new Dictionary<Banco, BancoAbstractFactory>
-      {
-          {Banco.Itau, new ItauFactory()},
-          {Banco.Bradesco, new BradescoFactory()},
-      };
-      return factories[banco];
+      Add(Banco.Itau, new ItauFactory());
+      Add(Banco.Bradesco, new BradescoFactory());
     }
   }
 }

@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json;
 
 namespace Leandro.Estudos.Patterns.AbstractFactory
@@ -16,6 +17,7 @@ namespace Leandro.Estudos.Patterns.AbstractFactory
     public string Banco { get; private set; }
     public Pagador Pagador { get; private set; }
     public string CodigoBarras { get; protected set; }
+    public DateTime Vencimento { get => DateTime.UtcNow.AddMonths(1); }
     public abstract void GerarCodigoBarras();
 
     public override string ToString()
