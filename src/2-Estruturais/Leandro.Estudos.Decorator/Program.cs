@@ -9,6 +9,7 @@ namespace Leandro.Estudos.Decorator
     {
       Console.WriteLine($"\n{new string('-', 120)}");
     }
+    
     static void Main(string[] args)
     {
       ImprimirLinha();
@@ -30,10 +31,18 @@ namespace Leandro.Estudos.Decorator
     static void ExemploNotificador()
     {
       Console.WriteLine("Exemplo Notificador");
-      var notificador = new EmailNotificador("email@teste.com");
-      var smsNotificador = new SmsDecorator(619998877, notificador);
-      var whatsappNotificador = new WhatsAppDecorator(619998877, "Leandro", smsNotificador);
-      whatsappNotificador.Notificar("O sistem parece estar passando por uma instabilidade. Verfique por favor!");
+      var dev = new Desenvolvedor("Leandro", "leandro@email.com", "61999887766");
+      dev.AssinarNotificacao(Notificacoes.SMS);
+      dev.AssinarNotificacao(Notificacoes.WhastApp);
+
+      Notificador notificador = new EmailNotificador(dev.Email);
+      if(dev.PossuiAssinatura(Notificacoes.SMS))
+        notificador = new SmsDecorator(dev.Telefone, notificador);
+      
+      if(dev.PossuiAssinatura(Notificacoes.WhastApp))
+        notificador = new WhatsAppDecorator(dev.Telefone, dev.Nome, notificador);
+
+      notificador.Notificar("O sistem parece estar passando por uma instabilidade. Verfique por favor!");
     }
   }
 }

@@ -4,15 +4,15 @@ namespace Leandro.Estudos.Decorator.Notificadores
 {
   public class WhatsAppDecorator : NotificadorDecorator
   {
-    public WhatsAppDecorator(long numeroWhatsApp,
-                               string nomeContato,
-                               Notificador notificador) : base(notificador)
+    public WhatsAppDecorator(string numeroWhatsApp,
+                             string nomeContato,
+                             Notificador notificador) : base(notificador)
     {
       NumeroWhatsApp = numeroWhatsApp;
       NomeContato = nomeContato;
     }
 
-    public long NumeroWhatsApp { get; private set; }
+    public string NumeroWhatsApp { get; private set; }
     public string NomeContato { get; private set; }
 
     public override void Notificar(string mensagem)

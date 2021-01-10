@@ -4,13 +4,13 @@ namespace Leandro.Estudos.Decorator.Notificadores
 {
   public class SmsDecorator : NotificadorDecorator
   {
-    public SmsDecorator(long numeroTelefone, Notificador notificador)
+    public SmsDecorator(string numeroTelefone, Notificador notificador)
       : base(notificador)
     {
       NumeroTelefone = numeroTelefone;
     }
 
-    public long NumeroTelefone { get; private set; }
+    public string NumeroTelefone { get; private set; }
 
     public override void Notificar(string mensagem)
     {
