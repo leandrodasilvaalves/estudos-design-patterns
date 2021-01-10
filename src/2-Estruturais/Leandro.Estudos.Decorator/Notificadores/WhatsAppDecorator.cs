@@ -2,9 +2,11 @@ using System;
 
 namespace Leandro.Estudos.Decorator.Notificadores
 {
-  public class WhatsAppNotificador : Notificador
+  public class WhatsAppDecorator : NotificadorDecorator
   {
-    public WhatsAppNotificador(long numeroWhatsApp, string nomeContato)
+    public WhatsAppDecorator(long numeroWhatsApp,
+                               string nomeContato,
+                               Notificador notificador) : base(notificador)
     {
       NumeroWhatsApp = numeroWhatsApp;
       NomeContato = nomeContato;
@@ -18,6 +20,7 @@ namespace Leandro.Estudos.Decorator.Notificadores
       Console.WriteLine($"Enviando notificacao por WhatsApp.");
       Console.WriteLine($"\tNome: {NomeContato} | Numero: {NumeroWhatsApp}");
       Console.WriteLine($"\t # Mensagem: {mensagem}");
+      base.Notificar(mensagem);
     }
   }
 }
